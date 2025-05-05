@@ -32,6 +32,63 @@ button {
     margin-right: auto;
     margin-left: auto;
 }
+.main-title {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 100px;
+    font-weight: bold;
+    font-size: 30px;
+    padding: 10px 15px;
+    text-transform: uppercase;
+    position: relative;
+    border: 2px solid black;
+    transition: border var(--mainTransition),
+                background-color var(--mainTransition) calc(2 * var(--mainTransition)),
+                color  var(--mainTransition) calc(2 * var(--mainTransition));
+}
+.main-title::after,
+.main-title::before {
+    --pseudoVerPosition: -30px;
+    content: "";
+    background-color: var(--mainColor);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 15px;
+    height: 15px;
+    border-radius: 50%;
+}
+.main-title::before {
+    left: var(--pseudoVerPosition);
+    transition: left var(--mainTransition) linear,
+                width var(--mainTransition) var(--mainTransition) linear,
+                height var(--mainTransition) var(--mainTransition) linear;
+}
+.main-title::after {
+    right: var(--pseudoVerPosition);
+    transition: right var(--mainTransition) linear,
+    width var(--mainTransition) var(--mainTransition) linear,
+    height var(--mainTransition) var(--mainTransition) linear;
+}
+.main-title:hover {
+    background-color: var(--mainColor);
+    color: white;
+    border-color: transparent;
+}
+.main-title:hover::after,
+.main-title:hover::before {
+    border-radius: 0;
+    width: 50%;
+    height: 100%;
+    z-index: -1;
+}
+.main-title:hover::after {
+    right: 0;
+}
+.main-title:hover::before {
+    left: 0;
+}
 @media (min-width: 768px) {
     .container {
         width: 750px;
@@ -60,6 +117,7 @@ header .container {
     justify-content: space-between;
     align-items: center;
     flex-wrap: wrap;
+    position: relative;
 }
 header .container > span {
     height: var(--headerHeight);
@@ -83,6 +141,64 @@ header .container > ul > li > a {
     transition: background-color var(--mainTransition), 
                 color var(--mainTransition);
 }
+/* Start Megamenu */
+.mega-menu {
+    display: flex;
+    visibility: hidden;
+    width: 100%;
+    background-color: white;
+    border-bottom: 4px solid var(--mainColor);
+    padding: 30px;
+    gap: 50px;
+    position: absolute;
+    left: 0;
+    z-index: 2;
+    transform: translateY(30px);
+    transition: transform var(--mainTransition);
+}
+.mega-menu .image img {
+    max-width: 100%;
+}
+.mega-menu ul {
+    color: var(--mainColor);
+    flex: 1;
+    min-width: 240px;
+    height: 280px;
+    font-weight: bold;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.mega-menu ul li {
+    border-bottom: 1px solid #E9E6E6;
+    position: relative;
+}
+.mega-menu ul li a {
+    display: block;
+    padding: 15px;
+    font-size: 18px;
+}
+.mega-menu ul li::before {
+    content: "";
+    background-color: #FAFAFA;
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transform: rotateY(90deg);
+    transition: var(--mainTransition);
+    transform-origin: 0% 0%;
+}
+.mega-menu ul li:hover::before {
+    transform: rotateY(0);
+}
+header .container > ul > li:nth-of-type(4):hover .mega-menu {
+    visibility: visible;
+    transform: translateY(1px);
+}
+/* End Megamenu */
 header .container > ul > li > a::before {
     content: "";
     background-color: var(--mainColor);
@@ -102,7 +218,7 @@ header .container > ul > li > a:hover {
 header .container > ul > li > a:hover::before {
     transform: rotateY(0);
 }
-@media (max-width: 767px) {
+@media (max-width: 991px) {
     header .container > span {
         height: 50px;
         width: 100%;
@@ -114,6 +230,14 @@ header .container > ul > li > a:hover::before {
         height: 35px;
         padding: 15px;
         font-size: 14px;
+    }
+    .mega-menu {
+        flex-direction: column;
+        padding: 5px;
+        gap: 5px;
+    }
+    .mega-menu .image {
+        margin: auto;
     }
 }
 /* End Header */
