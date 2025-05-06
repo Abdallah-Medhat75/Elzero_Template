@@ -447,3 +447,148 @@ article .container .box > div:last-child {
     }
 }
 /* End Gallery */
+/* Start Features */
+.features {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+.features .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+.features .box {
+    box-shadow: 0 0 10px #CCC;
+    text-align: center;
+}
+.features .image {
+    position: relative;
+    overflow: hidden;
+}
+.features .box .image::before {
+    content: "";
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    left: 0;
+    top: 0;
+    background-color: red;
+}
+.features .image::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    border-style: solid;
+    border-width: 0 0 170px 500px;
+    border-color: transparent transparent white transparent;
+    transition: border-width var(--mainTransition);
+}
+.features .image:hover::after {
+    /* border-width: 170px 500px 170px 0; */
+    border-width: 0 500px 170px 0;
+}
+.features img {
+    max-width: 100%;
+}
+.features h2 {
+    font-size: 40px;
+    width: fit-content;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80px;
+    margin: 10px auto;
+    margin-top: 0;
+    position: relative;
+}
+.features h2::after {
+    content: "";
+    position: absolute;
+    width: 50%;
+    height: 5px;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+}
+.features p {
+    font-size: 20px;
+    line-height: 2;
+    padding: 20px;
+    color: var(--textTransparentColor);
+    margin-bottom: 30px;
+}
+.features .box a {
+    display: block;
+    border: 3px solid transparent;
+    width: fit-content;
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 30px;
+    background-color: white;
+    color: red;
+    padding: 10px 30px;
+    border-radius: 6px;
+    font-weight: bold;
+    font-size: 27px;
+    /* font-size: 50px; Why Font This Gives You a White Line Above The Bottom Border ? */
+    cursor: pointer;
+    position: relative;
+    transition: background-position var(--mainTransition);
+}
+.features a:hover {
+    color: white;
+}
+.features .quality .image::before {
+    background-color: rgb(244 64 54 / 0.6);
+}
+.features .quality h2::after {
+    background-color: #f44036;
+}
+.features .quality a {
+    color: #f44036;
+    border-color: #f44036;
+    background-image: linear-gradient(to right,#f44036 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+.features .quality a:hover {
+    color: white;
+    background-position: left bottom;
+}
+.features .time .image::before {
+    background-color: rgb(0 150 136 / 0.6);
+}
+.features .time h2::after {
+    background-color: #009688;
+}
+.features .time a {
+    color: #009688;
+    border-color: #009688;
+    background-image: linear-gradient(to right,#009688 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+.features .time a:hover {
+    color: white;
+    background-position: left bottom;
+}
+.features .passion .image::before {
+    background-color: rgb(3 169 244 / 0.6);
+}
+.features .passion h2::after {
+    background-color: #03a9f4;
+}
+.features .passion a {
+    color: #03a9f4;
+    border-color: #03a9f4;
+    background-image: linear-gradient(to right,#03a9f4 50%, white 50%);
+    background-size: 200% 100%;
+    background-position: right bottom;
+}
+.features .box:hover a {
+    color: white;
+    background-position: left bottom;
+}
+/* End Features */
