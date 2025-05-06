@@ -483,7 +483,7 @@ article .container .box > div:last-child {
     border-color: transparent transparent white transparent;
     transition: border-width var(--mainTransition);
 }
-.features .image:hover::after {
+.features .box:hover .image::after {
     /* border-width: 170px 500px 170px 0; */
     border-width: 0 500px 170px 0;
 }
@@ -525,19 +525,18 @@ article .container .box > div:last-child {
     margin-left: auto;
     margin-right: auto;
     margin-bottom: 30px;
-    background-color: white;
     color: red;
     padding: 10px 30px;
     border-radius: 6px;
     font-weight: bold;
-    font-size: 27px;
+    font-size: 22px;
     /* font-size: 50px; Why Font This Gives You a White Line Above The Bottom Border ? */
+    /* Answer: Because Of The Border Is Not Considered From The Width */
+    /* So Using Pseudo Element Avoids Problems */
     cursor: pointer;
-    position: relative;
     transition: background-position var(--mainTransition);
-}
-.features a:hover {
-    color: white;
+    position: relative;
+    transition: color var(--mainTransition);
 }
 .features .quality .image::before {
     background-color: rgb(244 64 54 / 0.6);
@@ -548,13 +547,9 @@ article .container .box > div:last-child {
 .features .quality a {
     color: #f44036;
     border-color: #f44036;
-    background-image: linear-gradient(to right,#f44036 50%, white 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
 }
 .features .quality a:hover {
     color: white;
-    background-position: left bottom;
 }
 .features .time .image::before {
     background-color: rgb(0 150 136 / 0.6);
@@ -565,13 +560,9 @@ article .container .box > div:last-child {
 .features .time a {
     color: #009688;
     border-color: #009688;
-    background-image: linear-gradient(to right,#009688 50%, white 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
 }
 .features .time a:hover {
     color: white;
-    background-position: left bottom;
 }
 .features .passion .image::before {
     background-color: rgb(3 169 244 / 0.6);
@@ -582,12 +573,36 @@ article .container .box > div:last-child {
 .features .passion a {
     color: #03a9f4;
     border-color: #03a9f4;
-    background-image: linear-gradient(to right,#03a9f4 50%, white 50%);
-    background-size: 200% 100%;
-    background-position: right bottom;
+}
+.features .time a:hover {
+    color: white;
+}
+.features .box a::before {
+    content: "";
+    background-color: #03a9f4;
+    width: calc(100% + 2px); /* 2px to fill That Tiny White Space 1px for the right one + 1px for the left one */
+    height: calc(100% + 2px); /* Same But Vertical */
+    position: absolute;
+    top: -1px; /* Centering It Because Of The Additional 2px */
+    left: -1px; /* Same But Vertical */
+    transform: rotateY(90deg);
+    transition: transform var(--mainTransition);
+    z-index: -1;
+    transform-origin: left center;
+}
+.features .quality a::before {
+    background-color: #f44036;
+}
+.features .time a::before {
+    background-color: #009688;
+}
+.features .passion a::before {
+    background-color: #03a9f4;
 }
 .features .box:hover a {
     color: white;
-    background-position: left bottom;
+}
+.features .box:hover a::before {
+    transform: rotate(0);
 }
 /* End Features */
