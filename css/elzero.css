@@ -471,8 +471,7 @@ article .container .box > div:last-child {
     height: 100%;
     position: absolute;
     left: 0;
-    top: 0;
-    background-color: red;
+    top: -1px;
 }
 .features .image::after {
     content: "";
