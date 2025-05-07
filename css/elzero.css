@@ -1393,3 +1393,78 @@ article .container .box > div:last-child {
     }
 }
 /* End Stats */
+/* Start Discount */
+.discount {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+.discount .box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-basis: 50%;
+}
+.discount .box:nth-child(1) {
+    background-image: url("../imgs/discount-background1.jpg");
+    background-size: cover;
+    color: white;
+    text-align: center;
+    position: relative;
+    animation: change-bakckground 7s linear infinite alternate;
+}
+.discount .box:nth-child(1) h1 {
+    font-size: 40px;
+    margin: 20px 0;
+}
+.discount .box:nth-child(1) p {
+    line-height: 1.6;
+    font-size: 22px;
+}
+.discount .box:nth-child(1) .overlay {
+    background-color: rgb(23 135 224 / 97%);
+}
+.discount .content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: fit-content;
+    max-width: 93%;
+    height: 90%;
+    position: relative;
+}
+.discount img {
+    width: 300px;
+}
+.discount form {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
+.discount form textarea {
+    height: 150px;
+    border: none;
+    outline: none;
+    resize: none;
+}
+.discount form input,
+.discount form textarea {
+    background-color: #F9F9F9;
+    border-bottom: 1px solid #CCC;
+    padding: 15px;
+}
+.discount input[type="submit"] {
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+@keyframes change-bakckground {
+    to {
+        background-image: url("../imgs/discount-background2.jpg");
+    }
+}
+/* End Discount */
