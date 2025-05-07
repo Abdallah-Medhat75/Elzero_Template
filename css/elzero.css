@@ -150,14 +150,22 @@ header .container > ul > li > a {
     visibility: hidden;
     width: 100%;
     background-color: white;
-    border-bottom: 4px solid var(--mainColor);
-    padding: 30px;
+    padding: 32px;
     gap: 50px;
     position: absolute;
     left: 0;
     z-index: 2;
     transform: translateY(30px);
     transition: transform var(--mainTransition);
+}
+.mega-menu::after {
+    content: "";
+    background-color: var(--mainColor);
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
 }
 .mega-menu .image img {
     max-width: 100%;
@@ -238,6 +246,9 @@ header .container > ul > li > a:hover::before {
         flex-direction: column;
         padding: 5px;
         gap: 5px;
+    }
+    .mega-menu::after {
+        height: 3px;
     }
     .mega-menu .image {
         margin: auto;
