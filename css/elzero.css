@@ -36,6 +36,14 @@ input {
 input[type="submit"] {
     cursor: pointer;
 }
+.overlay {
+    background-color: rgb(255 255 255 / 95%);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+}
 .container {
     padding-left: 15px;
     padding-right: 15px;
@@ -1341,3 +1349,47 @@ article .container .box > div:last-child {
     }
 }
 /* End Video */
+/* Start Stats */
+.stats {
+    background-image: url("../imgs/stats.jpg");
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    position: relative;
+}
+.stats h1 {
+    width: fit-content;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 45px;
+    position: relative;
+}
+.stats .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+    position: relative;
+}
+.stats .container .box {
+    display: flex;
+    flex-direction: column;
+    font-size: 35px;
+    gap: 10px;
+    text-align: center;
+    background-color: white;
+    padding: 25px 0;
+}
+.stats .container .box p {
+    font-weight: bold;
+    font-size: 50px;
+}
+.stats .container .box span {
+    color: var(--mainColor);
+    font-weight: bold;
+    font-size: 19px;
+}
+@media (max-width: 767px) {
+    .stats h1 {
+        font-size: 35px;
+    }
+}
+/* End Stats */
