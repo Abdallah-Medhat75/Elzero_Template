@@ -1286,3 +1286,58 @@ article .container .box > div:last-child {
     }    
 }
 /* End Pricing */
+/* Start Video */
+.video {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+.video .container {
+    display: flex;
+}
+.video .list {
+    border: 2px solid #EEE;
+    flex-basis: 30%;
+}
+.video .list h4 {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #EEE;
+    padding: 20px;
+}
+.video .list ul li {
+    padding: 20px;
+    line-height: 1.7;
+}
+.video .list ul li:not(:last-child) {
+    border-bottom: 2px solid #EEE;
+}
+.video .list ul li span {
+    color: var(--textTransparentColor);
+}
+.video img {
+    max-width: 100%;
+}
+.video .vid-cont {
+    padding: 10px;
+    background-color: #E2E2E2;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.video .vid-cont p {
+    display: flex;
+    align-items: center;
+    height: 60px;
+    padding-left: 15px;
+    background-color: white;
+}
+@media (max-width: 991px) {
+    .video .container {
+        flex-direction: column;
+    }
+    .video img {
+        margin-bottom: 11px;
+    }
+}
+/* End Video */
