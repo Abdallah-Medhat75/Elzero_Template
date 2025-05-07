@@ -6,6 +6,7 @@
     --headerHeight: 72px;
     --sectionPadding: 100px;
     --textTransparentColor: #666;
+    --secondSectionBackground: #eee;
 }
 /* End Variables */
 /* Start Global Rules */
@@ -283,6 +284,8 @@ header .container > ul > li > a:hover::before {
     }
 }
 .landing .go-down {
+    display: block;
+    width: 50px;
     font-size: 30px;
     color: var(--mainColorHover);
     position: absolute;
@@ -396,7 +399,7 @@ article .container .box > div:last-child {
 /* End Articles */
 /* Start Gallery */
 .gallery {
-    background-color: #eee;
+    background-color: var(--secondSectionBackground);
     padding-top: var(--sectionPadding);
     padding-bottom: var(--sectionPadding);
 }
@@ -606,3 +609,398 @@ article .container .box > div:last-child {
     transform: rotate(0);
 }
 /* End Features */
+/* Start Testimonials */
+.testimonials {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    background-color: var(--secondSectionBackground);
+}
+.testimonials .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+.testimonials .container .testi-box {
+    background-color: white;
+    padding: 20px;
+    box-shadow: 0 0 10px #CCC;
+    position: relative;
+}
+.testimonials .container .testi-box .testi-image {
+    --testiWidthing: 100px;
+    width: var(--testiWidthing);
+    aspect-ratio: 1;
+    border-radius: 50%;
+    overflow: hidden;
+    position: absolute;
+    border: 10px solid #eee;
+    top: calc(-1 * (var(--testiWidthing) / 2));
+    right: -10px;
+}
+.testimonials .container .testi-box .testi-image img {
+    max-width: 100%;
+}
+.testimonials .container .testi-box > *:not(p:last-of-type) {
+    margin-bottom: 10px;
+}
+.testimonials .container .testi-box ul {
+    display: flex;
+    gap: 10px;
+}
+.testimonials .container ul li i {
+    color: #ffc107;
+}
+.testimonials .container .testi-box P {
+    color: var(--textTransparentColor);
+}
+.testimonials .container .testi-box p:last-of-type {
+    line-height: 1.6;
+}
+/* End Testimonials */
+/* Start Team */
+.team {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+.team .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+    position: relative;
+    z-index: 2;
+}
+.team .container .box {
+    border-radius: 7px;
+    padding-top: 70px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 2;
+}
+.team .container .box::before {
+    content: "";
+    background-color: #F3F3F3;
+    border-radius: inherit;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: -2;
+}
+.team .container .box::after {
+    content: "";
+    background-color: #E4E4E4;
+    border-radius: inherit;
+    width: 80%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    transition: transform var(--mainTransition);
+    transform: rotateY(90deg);
+    transform-origin: right center;
+    z-index: -1;
+    /* z-index: -3; Set It To This If You Don't Want To Make The Fill Get Back */
+}
+.team .container .box:hover::after {
+    transform: rotateY(0);
+}
+.team .container .data {
+    display: flex;
+    border-radius: inherit;
+}
+.team .container img {
+    max-width: 85%;
+    border-radius: inherit;
+    transition: filter var(--mainTransition);
+}
+.team .container .box:hover img {
+    filter: grayscale(100%);
+}
+.team ul {
+    height: 60%;
+    color: var(--textTransparentColor);
+    align-self: center;
+    padding: 0 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 18px;
+    flex: 1;
+    transition: color var(--mainTransition);
+}
+.team ul li a:hover {
+    color: var(--mainColor);
+}
+.team .container h3 {
+    flex-basis: 100%;
+    padding: 15px 0;
+    font-size: 25px;
+    color: var(--mainColor);
+    margin-top: 0;
+}
+.team .container h3,
+.team .container p {
+    margin-left: 70px;
+}
+/* End Team */
+/* Start Services */
+.services {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    background-color: var(--secondSectionBackground);
+}
+.services .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 40px;
+}
+.services .box {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    background-color: white;
+    height: 230px;
+    box-shadow: 0 0 10px 1px #CCC;
+    text-align: center;
+    transition: transform var(--mainTransition);
+}
+.services .box::before {
+    content: "";
+    background-color: var(--mainColor);
+    width: 100%;
+    height: 4px;
+    top: 0;
+    left: 0;
+    transform: rotateY(90deg);
+    transition: transform var(--mainTransition);
+}
+.services .box:hover {
+    transform: translateY(-13px);
+}
+.services .box:hover::before {
+    transform: rotateY(0);
+}
+.services h6 {
+    font-size: 65px;
+    color: #E4E4E4;
+}
+.services h2 {
+    margin: 0;
+    font-size: 27px;
+    color: var(--mainColor);
+    letter-spacing: -1px;
+}
+.services .box div:last-of-type {
+    background-color: #F3F3F3;
+    display: flex;
+    justify-content: space-between;
+    height: 45px;
+}
+.services .box div:last-of-type span {
+    display: flex;
+    flex-basis: 10%;
+    align-items: center;
+    height: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+    position: relative;
+    z-index: 2;
+}
+.services .box div:last-of-type span:first-child {
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: bold;
+    font-size: 30px;
+}
+.services .box div:last-of-type span:last-child {
+    color: var(--mainColor);
+}
+.services .box div:last-of-type span:first-child::before {
+    content: "";
+    background-color: var(--mainColor);
+    position: absolute;
+    right: -70%;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    transform: skew(-25deg) translateX(-50%);
+    z-index: -1;
+}
+.services .box div:last-of-type span:first-child::after {
+    content: "";
+    background-color: #E4E4E4;
+    position: absolute;
+    right: -140%;
+    top: 0;
+    width: 70%;
+    height: 100%;
+    transform: skew(-25deg) translateX(-50%);
+    z-index: -1;
+}
+/* End Services */
+/* Start Skills */
+.skills {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+}
+.skills .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+.skills img {
+    display: block;
+    max-width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+}
+.skills .content {
+    height: 365px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    max-width: 100%;
+}
+.skills .container h3 {
+    margin-bottom: 20px;
+}
+.skills .container .content span {
+    display: block;
+    width: 100%;
+    height: 30px;
+    border-radius: 1px;
+    position: relative;
+}
+.skills .container .content span::before {
+    content: attr(numbering);
+    color: var(--mainColor);
+    width: 50px;
+    aspect-ratio: 2 / 1;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: calc(-1 * (24px + (2px * 2)) - 15px);
+    transform: translateX(-50%);
+    border: 2px solid #EEE;
+    border-radius: 5px;
+}
+.skills .container .content span::after {
+    content: "";
+    width: 0;
+    height: 0;
+    border-width: 9px;
+    border-style: solid;
+    border-color: #EEE transparent transparent transparent;
+    position: absolute;
+    top: -15px;
+    transform: translateX(-50%);
+}
+/* Inner - Start Linear Gradient */
+.skills .container .content div:nth-child(1) span {
+    background-image: linear-gradient(to right, var(--mainColor) 80%, #eee 80%);
+}
+.skills .container .content div:nth-child(2) span {
+    background-image: linear-gradient(to right, var(--mainColor) 85%, #eee 85%);
+}
+.skills .container .content div:nth-child(3) span {
+    background-image: linear-gradient(to right, var(--mainColor) 70%, #eee 70%);
+}
+.skills .container .content div:nth-child(4) span {
+    background-image: linear-gradient(to right, var(--mainColor) 80%, #eee 80%);
+}
+/* Inner - End Linear Gradient */
+/* Inner - Start Pseudo Positioning */
+.skills .container .content div:nth-child(1) span::before,
+.skills .container .content div:nth-child(1) span::after,
+.skills .container .content div:nth-child(4) span::before,
+.skills .container .content div:nth-child(4) span::after {
+    left: 80%;
+}
+.skills .container .content div:nth-child(2) span::before,
+.skills .container .content div:nth-child(2) span::after {
+    left: 85%;
+}
+.skills .container .content div:nth-child(3) span::before,
+.skills .container .content div:nth-child(3) span::after {
+    left: 70%;
+}
+/* Inner - End Pseudo Positioning */
+@media (max-width: 767px) {
+    .skills .container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+
+    }
+}
+/* End Skills */
+/* Start Work */
+.work {
+    padding-top: var(--sectionPadding);
+    padding-bottom: var(--sectionPadding);
+    background-color: var(--secondSectionBackground);
+}
+.work .container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+}
+.work .container .content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+.work .container > img {
+    max-width: 100%;
+}
+.work .container .row {
+    padding: 20px;
+    background-color: rgb(246, 245, 245);
+    border: 2px solid white;
+    border-radius: 3px;
+    display: flex;
+    align-items: center;
+    gap: 40px;
+    position: relative;
+    z-index: 2;
+}
+.work .container .row::before {
+    content: "";
+    background-color: rgb(237, 237, 237);
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform var(--mainTransition);
+    z-index: -1;
+}
+.work .container .row:hover::before {
+    transform: translate(-50%, -50%) scale(1);
+}
+.work .container .row img {
+    width: 64px;
+    height: 64px;
+    /* aspect-ratio: 100 / 135; */
+}
+.work .container .text {
+    line-height: 1.8;
+}
+.work .container .text p {
+    color: var(--textTransparentColor);
+}
+@media (max-width: 767px) {
+    .work .container {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 50px;
+    }
+    .work .container .row {
+        flex-direction: column;
+        text-align: center;
+    }
+}
+/* End Work */
