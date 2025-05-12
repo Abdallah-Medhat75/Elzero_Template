@@ -23,6 +23,10 @@ a {
     color: inherit;
     text-decoration: none;
 }
+.mega-menu.active {
+    visibility: visible;
+    transform: translateY(1px);
+}
 ul {
     list-style: none;
 }
@@ -220,10 +224,10 @@ header .container > ul > li > a {
 .mega-menu ul li:hover::before {
     transform: rotateY(0);
 }
-header .container > ul > li:nth-of-type(4):hover .mega-menu {
+/* header .container > ul > li:nth-of-type(4):hover .mega-menu {
     visibility: visible;
     transform: translateY(1px);
-}
+} */
 /* End Megamenu */
 header .container > ul > li > a::before {
     content: "";
