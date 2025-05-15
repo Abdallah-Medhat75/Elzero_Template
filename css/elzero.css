@@ -54,6 +54,26 @@ input[type="submit"] {
     margin-right: auto;
     margin-left: auto;
 }
+/* Start Components */
+.scroll-to-top {
+    display: none;
+    visibility: hidden;
+    opacity: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--mainColor);
+    color: white;
+    font-weight: bold;
+    border-radius: 5px;
+    width: 40px;
+    height: 40px;
+    font-size: 22px;
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    transition: var(--mainTransition);
+    z-index: 90;
+}
 .main-title {
     width: fit-content;
     margin-left: auto;
@@ -128,11 +148,15 @@ input[type="submit"] {
         width: 1170px;
     }
 }
+/* End Components */
 /* End Global Rules */
 /* Start Header */
 header {
+    background-color: white;
     box-shadow: 0 0 10px #DDD;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 header .container {
     display: flex;
@@ -570,6 +594,7 @@ article .container .box > div:last-child {
     transition: background-position var(--mainTransition);
     position: relative;
     transition: color var(--mainTransition);
+    z-index: -1;
 }
 .features .quality .image::before {
     background-color: rgb(244 64 54 / 0.6);
@@ -581,9 +606,6 @@ article .container .box > div:last-child {
     color: #f44036;
     border-color: #f44036;
 }
-.features .quality a:hover {
-    color: white;
-}
 .features .time .image::before {
     background-color: rgb(0 150 136 / 0.6);
 }
@@ -593,9 +615,6 @@ article .container .box > div:last-child {
 .features .time a {
     color: #009688;
     border-color: #009688;
-}
-.features .time a:hover {
-    color: white;
 }
 .features .passion .image::before {
     background-color: rgb(3 169 244 / 0.6);
@@ -607,9 +626,6 @@ article .container .box > div:last-child {
     color: #03a9f4;
     border-color: #03a9f4;
 }
-.features .time a:hover {
-    color: white;
-}
 .features .box a::before {
     content: "";
     background-color: #03a9f4;
@@ -620,8 +636,8 @@ article .container .box > div:last-child {
     left: -1px; /* Same But Vertical */
     transform: rotateY(90deg);
     transition: transform var(--mainTransition);
-    z-index: -1;
     transform-origin: left center;
+    z-index: -1;
 }
 .features .quality a::before {
     background-color: #f44036;
